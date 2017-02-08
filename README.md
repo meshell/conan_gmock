@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/meshell/conan_gmock.svg)](https://travis-ci.org/meshell/conan_mock)
+[![Build Status](https://travis-ci.org/meshell/conan_gmock.svg)](https://travis-ci.org/meshell/conan_gmock)
+[![Build status](https://ci.appveyor.com/api/projects/status/ia1g9wue32t0pswa?svg=true)](https://ci.appveyor.com/project/meshell/conan-gmock)
+
 
 
 # conan_gmock

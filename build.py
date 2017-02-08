@@ -1,4 +1,5 @@
 from conan.packager import ConanMultiPackager
+import platform
 
 
 if __name__ == "__main__":
@@ -10,7 +11,7 @@ if __name__ == "__main__":
             pdbOptions = options.copy()
             pdbOptions.update({"gtest:include_pdbs": "True"})
             filtered_builds.append([settings, pdbOptions])
-        if (settings["os"] == "Windows") and (settings["compiler"] == "gcc"):
+        if (platform.system() == "Windows") and (settings["compiler"] == "gcc"):
             minGWOptions = options.copy()
             minGWOptions.update({"gtest:disable_pthreads": "True"})
             filtered_builds.append([settings, minGWOptions])
@@ -19,4 +20,3 @@ if __name__ == "__main__":
 
     builder.builds = filtered_builds
     builder.run()
-
