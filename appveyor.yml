@@ -3,17 +3,19 @@ environment:
     PYTHON: "C:\\Python27"
     PYTHON_VERSION: "2.7.8"
     PYTHON_ARCH: "32"
-    
+
     CONAN_UPLOAD: 1
     CONAN_REFERENCE: "gmock/1.8.0"
     CONAN_USERNAME: "meshell"
     CONAN_CHANNEL: "testing"
     CONAN_TOTAL_PAGES: 4
     CONAN_STABLE_BRANCH_PATTERN: "release/*"
-    
+    CONAN_PASSWORD:
+      secure: 8DHLeUq4q//8wc2+0yUPnw==
+
     matrix:
         - CONAN_CURRENT_PAGE: 1
-        - CONAN_CURRENT_PAGE: 2  
+        - CONAN_CURRENT_PAGE: 2
         - CONAN_CURRENT_PAGE: 3
         - CONAN_CURRENT_PAGE: 4
 

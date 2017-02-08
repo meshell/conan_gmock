@@ -9,47 +9,60 @@ env:
   - CONAN_REFERENCE="gmock/1.8.0"
   - CONAN_USERNAME="meshell"
   - CONAN_CHANNEL="testing"
-  - CONAN_TOTAL_PAGES=1
-  - CONAN_CURRENT_PAGE=1
+  - CONAN_TOTAL_PAGES=2
   - CONAN_STABLE_BRANCH_PATTERN="release/*"
   - secure: yoYUCB+YPYBbCk7K55mnFIFXzymZ2ZDhGIv7ZbM522vLJDCUBziJs15dCVPbeC8QvSN4PA+cGFafZZOUn9C5BlToVuhzk2YlvCQVSJLb2yYJysaaGerioz7AAp2Bbdlq2qMXKyU9kdWVrcb1zIPxxAr97dPIXEWQgOJura5YrxxjX69Tj2uroUj89o/ukI0GyjL5zqfhHeA90MBJmei9ReAxuFcueIqSDV8YY6hyfqvatDsGRkwcQDWc+2cBq4VTIXDG80kxAEALZPNaRV3WIe0QpK7ooYM1NPXnxVLAuErPyHI7MiXe7RTzV3E2VqzlqiGDO1/mGRHHUuosnrx+j5OImv4202O+Tg3UQ0k1vxoZcfKsniFD8+aZOCJr73HA3X5FOEyuFGnNCu4p+YR2RAy+CwkWlWncWdNOqceUgBYqUSjiapZJFGBkbs3e8ococoKENBJ4kT7jlEOfTpxlth8GwP+3+i9kXIfb0enWQc86yhKkY8bc6XJKfpdndkZicLxiggZ+Fr1yInQgrD34bXvI9//Im5qmYbbt6abEj3IpWpiVpmezJe/oltugwNRBLdIEFHjiVkJdUHY1LNiE6S8nZGwaWUh92x/WhS3frFE7SsBtmVOZosa0C0Nd2xxPL0P4YKzy12Hkydn3Y8ydiK4SuA5llyZMFQ+R486AmFg=
   matrix:
-  - CONAN_GCC_VERSIONS=4.6 CONAN_USE_DOCKER=1
-  - CONAN_GCC_VERSIONS=4.8 CONAN_USE_DOCKER=1
-  - CONAN_GCC_VERSIONS=4.9 CONAN_USE_DOCKER=1
-  - CONAN_GCC_VERSIONS=5.2 CONAN_USE_DOCKER=1
-  - CONAN_GCC_VERSIONS=5.3 CONAN_USE_DOCKER=1
-  - CONAN_GCC_VERSIONS=5.4 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=4.6 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=4.6 CONAN_CURRENT_PAGE=2 CONAN_USE_DOCKER=1
+
+    - CONAN_GCC_VERSIONS=4.8 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=4.8 CONAN_CURRENT_PAGE=2 CONAN_USE_DOCKER=1
+
+    - CONAN_GCC_VERSIONS=4.9 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=4.9 CONAN_CURRENT_PAGE=2 CONAN_USE_DOCKER=1
+
+    - CONAN_GCC_VERSIONS=5.2 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=5.2 CONAN_CURRENT_PAGE=2 CONAN_USE_DOCKER=1
+
+    - CONAN_GCC_VERSIONS=5.3 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=5.3 CONAN_CURRENT_PAGE=2 CONAN_USE_DOCKER=1
+
+    - CONAN_GCC_VERSIONS=5.4 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=5.4 CONAN_CURRENT_PAGE=2 CONAN_USE_DOCKER=1
+
+    - CONAN_GCC_VERSIONS=6.2 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=6.2 CONAN_CURRENT_PAGE=2 CONAN_USE_DOCKER=1
 matrix:
   include:
   - os: osx
     osx_image: xcode8.2
     language: generic
-    env: 
+    env:
   - os: osx
     osx_image: xcode8.1
     language: generic
-    env: 
+    env:
   - os: osx
     osx_image: xcode8
     language: generic
-    env: 
+    env:
   - os: osx
     osx_image: xcode7.3
     language: generic
-    env: 
+    env:
   - os: osx
     osx_image: xcode7.1
     language: generic
-    env: 
+    env:
   - os: osx
     osx_image: xcode6.4
     language: generic
-    env: 
+    env:
   - os: osx
     osx_image: xcode6.2
     language: generic
-    env: 
+    env:
 install:
 - "./.travis/install.sh"
 script:
