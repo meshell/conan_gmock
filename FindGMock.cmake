@@ -144,7 +144,7 @@ endif()
 
 MESSAGE(STATUS "********* Conan FindGMock wrapper! **********")
 
-SET(GMOCK_ROOT ${CONAN_GMOCK_ROOT})
+set(GMOCK_ROOT ${CONAN_GMOCK_ROOT})
 
 find_path(GMOCK_INCLUDE_DIR gmock/gmock.h
     HINTS

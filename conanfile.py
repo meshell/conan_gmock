@@ -45,15 +45,17 @@ class GMockConan(ConanFile):
             self.run("IF not exist _build mkdir _build")
         else:
             self.run("mkdir _build")
-        force = "-Dgtest_force_shared_crt=ON"
-        shared = "-DBUILD_SHARED_LIBS=1" if self.options.shared else ""
-        pthreads = "-Dgtest_disable_pthreads=ON" if self.options.disable_pthreads else ""
-        flags = "{shared} {force} {pthreads} -DBUILD_GTEST=ON".format(shared=shared,
-                                                                      force=force,
-                                                                      pthreads=pthreads)
+        flags = ["-Dgtest_force_shared_crt=ON"]
+        if self.options.shared:
+            flags.append("-DBUILD_SHARED_LIBS=1")
+        if self.options.disable_pthreads:
+            flags.append("-Dgtest_disable_pthreads=ON")
+        flags.append("-DBUILD_GTEST=ON")
+        # JOIN ALL FLAGS
+        cxx_flags = " ".join(flags)
 
         cd_build = "cd _build"
-        self.run('{cd} && cmake .. {cmake} {flags}'.format(cd=cd_build, cmake=cmake.command_line, flags=flags))
+        self.run('{cd} && cmake .. {cmake} {flags}'.format(cd=cd_build, cmake=cmake.command_line, flags=cxx_flags))
         self.run('{cd} && cmake --build . {config}'.format(cd=cd_build, config=cmake.build_config))
 
     def package(self):
