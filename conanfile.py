@@ -12,6 +12,7 @@ username = os.getenv("CONAN_USERNAME", "meshell")
 class GMockConan(ConanFile):
     name = "gmock"
     version = "1.8.0"
+    description = "Conan package for the google mock and testing framework"
     ZIP_FOLDER_NAME = "googletest-release-{}".format(version)
     generators = "cmake"
     settings = "os", "arch", "compiler", "build_type"
