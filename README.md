@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/meshell/conan_gmock.svg)](https://travis-ci.org/meshell/conan_gmock)
 [![Build status](https://ci.appveyor.com/api/projects/status/ia1g9wue32t0pswa?svg=true)](https://ci.appveyor.com/project/meshell/conan-gmock)
-[![Conan.io](https://img.shields.io/badge/conan.io-gmock%2F1.8.0-green.svg)](http://www.conan.io/source/gmock/1.8.0/meshell/testing)
+[![Conan.io](https://img.shields.io/badge/conan.io-gmock%2F1.8.0-green.svg)](http://www.conan.io/source/gmock/1.8.0/meshell/stable)
 
 
 # conan_gmock
