@@ -49,7 +49,8 @@ class GMockConan(ConanFile):
         flags = []
         if self.settings.compiler == "Visual Studio":
             # If msvc runtime linkage is MD or MDd, gtest_force_shared_crt should be ON. Otherwise OFF.
-            vs_runtime_linkage = "ON" if self.settings.compiler.vs_runtime_linkage.find("MD") == 0 else "OFF"
+            vs_runtime = "%s" % self.settings.compiler.runtime
+            vs_runtime_linkage = "ON" if vs_runtime[:2] == "MD" else "OFF"
             flags.append("-Dgtest_force_shared_crt={}".format(vs_runtime_linkage))
         if self.options.shared:
             flags.append("-DBUILD_SHARED_LIBS=1")
