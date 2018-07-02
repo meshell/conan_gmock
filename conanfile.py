@@ -40,7 +40,7 @@ class GMockConan(ConanFile):
         os.unlink(zip_name)
 
     def build(self):
-        cmake = CMake(self.settings)
+        cmake = CMake(self)
         msdos_shell = (self.settings.os == "Windows") and (self.options.cygwin_msvc == False)
         if msdos_shell:
             self.run("IF not exist _build mkdir _build")
@@ -52,11 +52,17 @@ class GMockConan(ConanFile):
             vs_runtime = "%s" % self.settings.compiler.runtime
             vs_runtime_linkage = "ON" if vs_runtime[:2] == "MD" else "OFF"
             flags.append("-Dgtest_force_shared_crt={}".format(vs_runtime_linkage))
+
+            # Warning in Visual Studio 2017 (version 15) produces lots of warnings, which cause error under -Wall
+            if self.settings.compiler.version == 15:
+                flags.append("-DCMAKE_CXX_FLAGS=/D_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING")
+
         if self.options.shared:
             flags.append("-DBUILD_SHARED_LIBS=1")
         if self.options.disable_pthreads:
             flags.append("-Dgtest_disable_pthreads=ON")
         flags.append("-DBUILD_GTEST=ON")
+
         # JOIN ALL FLAGS
         cxx_flags = " ".join(flags)
 
